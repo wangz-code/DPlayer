@@ -18,7 +18,6 @@ import Controller from './controller';
 import Setting from './setting';
 import Comment from './comment';
 import HotKey from './hotkey';
-import ContextMenu from './contextmenu';
 import InfoPanel from './info-panel';
 import tplVideo from '../template/video.art';
 
@@ -171,8 +170,6 @@ class DPlayer {
         this.timer = new Timer(this);
 
         this.hotkey = new HotKey(this);
-
-        this.contextmenu = new ContextMenu(this);
 
         this.initVideo(this.video, (this.quality && this.quality.type) || this.options.video.type);
 
@@ -699,7 +696,6 @@ class DPlayer {
         this.container.removeEventListener('click', this.containerClickFun, true);
         this.fullScreen.destroy();
         this.hotkey.destroy();
-        this.contextmenu.destroy();
         this.controller.destroy();
         this.timer.destroy();
         this.video.src = '';
